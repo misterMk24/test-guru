@@ -1,24 +1,15 @@
-# README
+# TestGuru Application
+Предназначено для создания, управления и выполнения различных тестов.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Приложение содержит две группы пользователей:
+  1. Пользователи, использующие тесты;
+  2. Администраторы. 
 
-Things you may want to cover:
+Обязанности администраторов: 
+1. Создание и управление тестами;
+2. Разграничение прав доступа.
 
-* Ruby version
+## Основные объекты приложения:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Пользователь. Будет логически делиться на две сущности: обычные пользователи и администраторы;
+2. Тесты. Тесты будут логически разделяться по тематике и предназначению.
