@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_04_112434) do
+ActiveRecord::Schema.define(version: 2020_08_04_114811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
-    t.string "body"
+    t.string "body", null: false
     t.boolean "correct"
     t.bigint "question_id"
     t.datetime "created_at", precision: 6, null: false
@@ -25,13 +25,13 @@ ActiveRecord::Schema.define(version: 2020_08_04_112434) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string "body"
+    t.string "body", null: false
     t.bigint "test_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_08_04_112434) do
   end
 
   create_table "tests", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.integer "level"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_08_04_112434) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
+    t.string "username", null: false
     t.string "role"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
