@@ -19,3 +19,13 @@ rock_music_tests = []
 
 10.times { rock_music_tests << Test.create!(title: Faker::Music::RockBand.name, level: rand(0..2),
   category_id: categories_id[:rock_music]) }
+
+cr7_testID = football_tests.select{ |test| test.title = "Cristiano Ronaldo" }.first.id
+cr7_questions = []
+[ "When CR7 won Europe's Championat?",
+  "How old is he?",
+  "How many years he spent in MU?",
+  "How many years he spent in Real Madrid?",
+  "How many childs does he has?"
+].each { |question| cr7_questions << Question.create!(body: question, test_id: cr7_testID) }
+
