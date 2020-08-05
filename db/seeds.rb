@@ -1,14 +1,21 @@
 require 'faker'
 
-10.times { User.create!(username: Faker::Name.first_name) }
+users = []
+10.times { users << User.create!(username: Faker::Name.first_name) }
 
-["football", "basketball", "rock_music"].each { |cat| Category.create!(title: cat) }
+categories = { football: "football", basketball: "basketball", rock_music: "rock_music" }
+categories_id = {}
+categories.each_pair { |key, value| categories_id[key] = Category.create!(title: value).id }
 
-10.times { Test.create!(title: Faker::Sports::Football.player, level: rand(0..2),
-  category_id: Category.find_by(title: "football").id) }
+football_tests = []
+basketball_tests = []
+rock_music_tests = []
 
-10.times { Test.create!(title: Faker::Sports::Basketball.team, level: rand(0..2),
-  category_id: Category.find_by(title: "basketball").id) }
+10.times { football_tests << Test.create!(title: Faker::Sports::Football.player, level: rand(0..2),
+  category_id: categories_id[:football]) }
 
-10.times { Test.create!(title: Faker::Music::RockBand.name, level: rand(0..2),
-  category_id: Category.find_by(title: "rock_music").id) }
+10.times { basketball_tests << Test.create!(title: Faker::Sports::Basketball.team, level: rand(0..2),
+  category_id: categories_id[:basketball]) }
+
+10.times { rock_music_tests << Test.create!(title: Faker::Music::RockBand.name, level: rand(0..2),
+  category_id: categories_id[:rock_music]) }
