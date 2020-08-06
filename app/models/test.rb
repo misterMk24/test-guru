@@ -4,6 +4,6 @@ class Test < ApplicationRecord
   has_and_belongs_to_many :users
 
   def self.ordered_tests(category)
-    self.joins(:category).where(categories: { title: category })
+    self.joins(:category).where(categories: { title: category }).order(id: :desc)
   end
 end
