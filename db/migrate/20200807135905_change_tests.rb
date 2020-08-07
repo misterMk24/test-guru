@@ -1,7 +1,6 @@
 class ChangeTests < ActiveRecord::Migration[6.0]
   def change
-    change_table :tests do |t|
-      t.references :user
-    end
+    add_column :tests, :author_id, :bigint
+    add_foreign_key :tests, :users, column: :author_id, primary_key: "id"
   end
 end
