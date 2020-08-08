@@ -4,6 +4,8 @@ users = User.create([
   { username: "Richard" }
 ])
 
+admin_user_id = users[0].id
+
 categories = Category.create([
   { title: 'football' },
   { title: 'basketball' },
@@ -15,21 +17,21 @@ basketball_id = categories[1].id
 rock_music_id = categories[2].id
 
 football_tests = Test.create([
-  { title: "Cristiano Ronaldo", level: 0, category_id: football_id },
-  { title: "Robert Lewandowski", level: 1, category_id: football_id },
-  { title: "Chelsea Football Club", level: 2, category_id: football_id }
+  { title: "Cristiano Ronaldo", level: 0, category_id: football_id, user_id: admin_user_id },
+  { title: "Robert Lewandowski", level: 1, category_id: football_id, user_id: admin_user_id },
+  { title: "Chelsea Football Club", level: 2, category_id: football_id, user_id: admin_user_id }
 ])
 
 basketball_tests = Test.create([
-  { title: "Michael Jordan", level: 1, category_id: basketball_id },
-  { title: "NBA common", level: 0, category_id: basketball_id },
-  { title: "Chicago Bulls", level: 2, category_id: basketball_id }
+  { title: "Michael Jordan", level: 1, category_id: basketball_id, user_id: admin_user_id },
+  { title: "NBA common", level: 0, category_id: basketball_id, user_id: admin_user_id },
+  { title: "Chicago Bulls", level: 2, category_id: basketball_id, user_id: admin_user_id }
 ])
 
 rock_music_tests = Test.create([
-  { title: "Beatles", level: 0, category_id: rock_music_id },
-  { title: "Queen", level: 1, category_id: rock_music_id },
-  { title: "Ozzy Osbourne", level: 2, category_id: rock_music_id }
+  { title: "Beatles", level: 0, category_id: rock_music_id, user_id: admin_user_id },
+  { title: "Queen", level: 1, category_id: rock_music_id, user_id: admin_user_id },
+  { title: "Ozzy Osbourne", level: 2, category_id: rock_music_id, user_id: admin_user_id }
 ])
 
 cr7_testID = football_tests[0].id
