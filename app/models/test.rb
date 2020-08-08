@@ -4,7 +4,10 @@ class Test < ApplicationRecord
   belongs_to :category
   has_and_belongs_to_many :users
 
-  def self.ordered_tests(category)
-    self.joins(:category).where(categories: { title: category }).order(id: :desc)
-  end
+  scope :simple, -> { where(level: 0..1) }
+  scope :medium, -> { where(level: 2..4) }
+  scope :hard, -> { where('level >= 5') }
+
+  scope :ordered_tests, ->(category) { joins(:category).
+    where(categories: { title: category }).order(id: :desc) }
 end
