@@ -2,15 +2,17 @@ class Answer < ApplicationRecord
   belongs_to :question
 
   validates :body, presence: true
-  validates_each :question_id do |record, attr, value|
-    if Question.find(value).answers.count == MAX_QUESTION_AMOUNT
-     record.errors.add attr, "shouldn't has more than 4 answers"
-    end
-  end
+  validate :validate_question_capacity, on: :create
 
   scope :correct, -> { where(correct: true) }
 
   private
+
+  def validate_question_capacity
+    if question.answers.count == MAX_QUESTION_AMOUNT
+      errors.add(:base, 'This question has four answers already')
+    end
+  end
 
   MAX_QUESTION_AMOUNT = 4
 end
