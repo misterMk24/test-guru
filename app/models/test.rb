@@ -13,6 +13,9 @@ class Test < ApplicationRecord
   scope :medium, -> { where(level: 2..4) }
   scope :hard, -> { where('level >= 5') }
 
-  scope :ordered_tests, ->(category) { joins(:category).
-    where(categories: { title: category }).order(id: :desc) }
+  scope :tests_by_category, ->(category) { joins(:category).where(categories: { title: category }) }
+
+  def self.ordered_tests(category)
+    tests_by_category(category).order(id: :desc).pluck(:title)
+  end
 end
