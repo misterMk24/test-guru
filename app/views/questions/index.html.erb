@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Test name is: <%= @test.title %></h1>
+<h2>Questions: </h2>
+
+<table style="width: 40%; border-collapse: collapse;">
+  <tbody>
+	<% @questions.each do |question| %>
+	<tr>
+	  <td><%= question.body %></td>
+	  <td><b><%= link_to 'Destroy', question_path(question.id),
+				method: :delete,
+				data: { confirm: 'Are you sure?' } %></b></td>
+	</tr>
+    <% end %> 
+  </tbody>
+</table>
+
+</body>
+</html>
