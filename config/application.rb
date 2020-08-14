@@ -15,6 +15,7 @@ module TestGuru
     I18n.enforce_available_locales = true
     I18n.config.available_locales = %i[en]
     I18n.default_locale = :en
+    config_autoloader = :classic
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

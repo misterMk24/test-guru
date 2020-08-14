@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
-<body>
-
-<p>Question with id:  <%= @question.id %></p>
-<p>Body: <b><%= @question.body %></b></p>
-
-</body>
+  <body>
+    <p>Question with id:  <%= @question.id %></p>
+    <p>Body: <b><%= @question.body %></b></p>
+    <%= link_to 'Back', action: 'index', test_id: @question.test_id %>
+  </body>
 </html>
