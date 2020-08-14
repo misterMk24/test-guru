@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
-  before_action :current_test_get, only: [:create, :index, :new]
-  before_action :current_question_get, only: [:show, :edit, :update, :destroy]
+  before_action :current_test, only: [:create, :index, :new]
+  before_action :current_question, only: [:show, :edit, :update, :destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = Question.new
+    @question = @test.questions.new
   end
 
   def edit
@@ -48,13 +48,13 @@ class QuestionsController < ApplicationController
     params.require(:question).permit(:body)
   end
 
-  def current_test_get
+  def current_test
     @test = Test.find(params[:test_id])
   rescue ActiveRecord::RecordNotFound
     render plain: "There is no such test"
   end
 
-  def current_question_get
+  def current_question
     @question = Question.find(params[:id])
   end
 

@@ -1,8 +1,7 @@
 class TestsController < ApplicationController
-  before_action :current_test_get, only: [:show, :edit, :update, :destroy]
+  before_action :current_test, only: [:show, :edit, :update, :destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
-  rescue_from ActiveRecord::RecordInvalid, with: :rescue_with_parameters_invalid
 
   def index
     @tests = Test.all
@@ -31,10 +30,10 @@ class TestsController < ApplicationController
   def create
     @test = Test.new(test_params)
 
-    if @test.save!
+    if @test.save
       redirect_to @test
     else
-      redirect_to action: 'new'
+      render 'new'
     end
   end
 
@@ -49,7 +48,7 @@ class TestsController < ApplicationController
     params.require(:test).permit(:title, :level, :category_id, :author_id)
   end
 
-  def current_test_get
+  def current_test
     @test = Test.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     render plain: "There is no such test"
@@ -57,9 +56,5 @@ class TestsController < ApplicationController
 
   def rescue_with_test_not_found
     render plain: 'Test was not found'
-  end
-
-  def rescue_with_parameters_invalid
-    render partial: 'shared/errors', locals: { resource: @test }
   end
 end
