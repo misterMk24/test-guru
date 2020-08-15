@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
-  before_action :current_test_get, only: [:create, :index]
-  before_action :current_question_get, only: [:show, :destroy]
+  before_action :current_test, only: [:create, :index, :new]
+  before_action :current_question, only: [:show, :edit, :update, :destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
@@ -13,6 +13,18 @@ class QuestionsController < ApplicationController
   end
 
   def new
+    @question = @test.questions.new
+  end
+
+  def edit
+  end
+
+  def update
+    if @question.update(question_params)
+      redirect_to @question
+    else
+      render :edit
+    end
   end
 
   def create
@@ -27,7 +39,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    render plain: 'Question was successfully deleted'
+    redirect_to action: 'index', test_id: @question.test_id
   end
 
   private
@@ -36,13 +48,13 @@ class QuestionsController < ApplicationController
     params.require(:question).permit(:body)
   end
 
-  def current_test_get
+  def current_test
     @test = Test.find(params[:test_id])
   rescue ActiveRecord::RecordNotFound
     render plain: "There is no such test"
   end
 
-  def current_question_get
+  def current_question
     @question = Question.find(params[:id])
   end
 
