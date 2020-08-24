@@ -9,9 +9,9 @@
   	<th>Category</th>
   	<th>Author</th>
   	<th>Number of questions</th>
-  	<th colspan="3">Actions</th>
+  	<th colspan="4">Actions</th>
   </tr>
-      <%= render @tests.order(:created_at) %>					
+    <%= render @tests.order(:created_at) %>
 </table>
 
 <%= render 'shared/footer' %>
