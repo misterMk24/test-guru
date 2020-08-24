@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_08_16_205029) do
   create_table "test_passages", force: :cascade do |t|
     t.bigint "test_id"
     t.bigint "user_id"
-    t.bigint "current_question"
+    t.bigint "current_question_id"
     t.integer "correct_questions", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2020_08_16_205029) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "questions", "tests"
-  add_foreign_key "test_passages", "questions", column: "current_question"
+  add_foreign_key "test_passages", "questions", column: "current_question_id"
   add_foreign_key "test_passages", "tests"
   add_foreign_key "test_passages", "users"
   add_foreign_key "tests", "categories"
