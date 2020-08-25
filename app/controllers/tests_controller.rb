@@ -1,5 +1,5 @@
 class TestsController < ApplicationController
-  before_action :current_test, only: [:show, :edit, :update, :destroy]
+  before_action :current_test, only: [:show, :edit, :update, :destroy, :start]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
@@ -40,6 +40,12 @@ class TestsController < ApplicationController
   def destroy
     @test.destroy
     redirect_to tests_path
+  end
+
+  def start
+    @user = User.second
+    @user.tests.push(@test)
+    redirect_to @user.test_passage(@test)
   end
 
   private
