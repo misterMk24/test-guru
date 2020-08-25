@@ -17,7 +17,25 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
+  def success?
+    calculate_result >= SUCCESS_TEST
+  end
+
+  def calculate_result
+    total_questions = self.test.questions.count.to_f
+    correct_questions = self.correct_questions.to_f
+    result = correct_questions / total_questions * TO_PERCENTAGE
+  end
+
+  def current_question_position
+    question_ids = self.test.questions.order(:id).pluck(:id)
+    current_position = question_ids.index(self.current_question.id) + 1
+  end
+
   private
+
+  SUCCESS_TEST = 85
+  TO_PERCENTAGE = 100
 
   def before_validation_set_first_question
     self.current_question = test.questions.first if test.present?
