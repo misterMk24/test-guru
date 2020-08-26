@@ -7,7 +7,7 @@ module ApplicationHelper
     link_to 'Project Test-Guru', "https://github.com/#{author}/#{repo}"
   end
 
-  def flash_message_view
+  def greetings_message_view
     if logged_in?
       "<p class='nav user'>Welcome, <b>#{current_user.username}</b> Guru</p>".html_safe
     end

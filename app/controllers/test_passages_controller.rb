@@ -2,6 +2,9 @@ class TestPassagesController < ApplicationController
   before_action :current_test_passage, only: %i[show result update]
 
   def show
+    unless @test_passage.user.id == session[:user_id]
+      redirect_to tests_path, alert: "You do not have permission"
+    end
   end
 
   def result

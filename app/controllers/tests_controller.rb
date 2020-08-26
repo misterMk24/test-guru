@@ -1,7 +1,5 @@
 class TestsController < ApplicationController
-  before_action :authenticate_user!
   before_action :current_test, only: [:show, :edit, :update, :destroy, :start]
-
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
@@ -44,7 +42,7 @@ class TestsController < ApplicationController
   end
 
   def start
-    @user = User.second
+    @user = User.find(session[:user_id])
     @user.tests.push(@test)
     redirect_to @user.test_passage(@test)
   end

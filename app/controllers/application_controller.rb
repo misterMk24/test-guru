@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  before_action :requested_url
+  before_action :authenticate_user!
+  
   helper_method :current_user,
                 :logged_in?
 
@@ -16,5 +19,10 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     current_user.present?
+  end
+
+  def requested_url
+    cookies[:return_to_url] = request.url
+    cookies[:user_id] = session[:user_id] if logged_in?
   end
 end
