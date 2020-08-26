@@ -1,14 +1,11 @@
 module TestPassageHelper
-  def resolve_css_class(test_passage)
-    test_passage.success? ? 'success' : 'failed'
-  end
-
   def result_view(test_passage)
     result = test_passage.calculate_result
     if test_passage.success?
-      "Congratulations, you've successfully passed the test. Your score is: #{result.round}%"
+      "<p class= success>Congratulations, you've successfully passed the test. Your score is: #{result.round}%</p>".html_safe
+      # "Congratulations, you've successfully passed the test. Your score is: #{result.round}%"
     else
-      "You failed. Your score is: #{result.round}%"
+      "<p class= failed>You've failed. Your score is: #{result.round}%</p>".html_safe
     end
   end
 
