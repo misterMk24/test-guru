@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   skip_before_action :authenticate_user!
   skip_before_action :requested_url
+  
   def new
   end
 
