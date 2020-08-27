@@ -1,6 +1,6 @@
 <h1>Tests list</h1>
 
-<%= render 'shared/flash_messages' unless flash.empty? %>
+<%= flash_message_view(:notice) %>
 
 <p><%= link_to 'Create', new_test_path %></p>
 

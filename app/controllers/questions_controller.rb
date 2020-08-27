@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
-  before_action :current_test, only: [:create, :index, :new]
-  before_action :current_question, only: [:show, :edit, :update, :destroy]
+  before_action :current_test, only: %i[create index new]
+  before_action :current_question, only: %i[show edit update destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 

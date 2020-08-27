@@ -33,7 +33,7 @@ class TestsController < ApplicationController
     if @test.save
       redirect_to @test
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -43,7 +43,7 @@ class TestsController < ApplicationController
   end
 
   def start
-    @user = User.find(session[:user_id])
+    @user = current_user
     @user.tests.push(@test)
     redirect_to @user.test_passage(@test)
   end

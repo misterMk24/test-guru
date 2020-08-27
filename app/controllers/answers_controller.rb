@@ -47,5 +47,4 @@ class AnswersController < ApplicationController
   def current_answer
     @answer = Answer.find(params[:id])
   end
-
 end
