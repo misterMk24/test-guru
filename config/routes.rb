@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  # root 'sessions#new'
+  root 'tests#index'
 
   get :signup, to: 'users#new'
   get :login, to: 'sessions#new'
