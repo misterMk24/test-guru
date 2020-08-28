@@ -1,10 +1,15 @@
 class User < ApplicationRecord
+  
   has_many :test_passages
   has_many :tests, through: :test_passages
   has_many :authored_tests, class_name: 'Test', foreign_key: 'author_id'
+  
+  validates :username, presence: true, 
+                       uniqueness: true
+  validates :email, presence: true, uniqueness: true,
+                    length: { maximum: 50 }, format: { with: URI::MailTo::EMAIL_REGEXP }
 
-  validates :username, presence: true, uniqueness: true
-  validates :email, presence: true
+  has_secure_password
 
   def tests_by_level(level)
     self.tests.where(level: level.to_i)

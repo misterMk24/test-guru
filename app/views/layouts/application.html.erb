@@ -10,6 +10,8 @@
   </head>
 
   <body>
+    <%= greetings_message_view %>
+    <%= render 'layouts/navbar' if logged_in? %>
     <%= yield %>
   </body>
 </html>

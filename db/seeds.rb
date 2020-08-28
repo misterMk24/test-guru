@@ -1,6 +1,6 @@
 users = User.create([
   { username: "Alex", email: "alex@gmail.com" },
-  { username: "Jose" , email: "jose@gmail.com"},
+  { username: "Jose" , email: "jose@gmail.com" },
   { username: "Richard", email: "richard@gmail.com" }
 ])
 

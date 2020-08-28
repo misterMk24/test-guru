@@ -1,0 +1,6 @@
+<ul>
+  <li class='navbar'><%= link_to 'Test Guru', tests_path %></li>
+  <li class='navbar' style='float:right'><%= link_to 'Sign Out', session_path(session[:user_id]),
+                              method: :delete,
+                              data: { confirm: 'Are you sure?' } %></li>
+</ul>
