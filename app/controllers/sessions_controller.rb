@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      if current_user_in_cookie? && cookies[:return_to_url]
-        redirect_to cookies[:return_to_url]
+      if current_user.id == cookies[:user_id].to_i
+        redirect_to cookies[:return_to_url] || tests_path
       else
         redirect_to tests_path
       end
@@ -24,11 +24,5 @@ class SessionsController < ApplicationController
   def destroy
     session.delete(:user_id)
     redirect_to login_path
-  end
-
-  private
-
-  def current_user_in_cookie?
-    current_user.id == cookies[:user_id].to_i || cookies[:user_id].nil?
   end
 end
