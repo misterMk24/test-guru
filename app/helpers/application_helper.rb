@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def greetings_message_view
-    if logged_in?
+    if user_signed_in?
       "<p class='nav user'>Welcome, <b>#{current_user.username}</b> Guru</p>".html_safe
     end
   end

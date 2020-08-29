@@ -1,28 +1,34 @@
 class ApplicationController < ActionController::Base
+  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :requested_url
   before_action :authenticate_user!
-  
-  helper_method :current_user,
-                :logged_in?
 
   private
 
-  def authenticate_user!
-    unless current_user
-      redirect_to login_path, alert: 'Invalid Email or Password'
-    end
+  def after_sign_in_path_for(resource)
+    logger.info "Current user id: #{current_user.id}"
+    
+    if current_user.id == cookies[:user_id].to_i
+      cookies[:return_to_url] || root_path
+    else
+      stored_location_for(:user) || root_path
+    end  
   end
 
-  def current_user
-    @user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-  end
+  def after_sign_out_path_for(resource)
+    new_user_session_path
+  end 
 
-  def logged_in?
-    current_user.present?
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :email, :password, :password_confirmation])
   end
 
   def requested_url
-    cookies[:return_to_url] = request.url
-    cookies[:user_id] = session[:user_id] if logged_in?
+    cookies[:return_to_url] = request.fullpath
+    cookies[:user_id] = current_user&.id
+    store_location_for(:user, cookies[:return_to_url])
+    
+    logger.info "Here is path: #{cookies[:return_to_url]}"
+    logger.info "Here is user_id: #{cookies[:user_id]}"
   end
 end
