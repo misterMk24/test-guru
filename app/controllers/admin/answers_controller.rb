@@ -1,4 +1,4 @@
-class Admin::AnswersController < ApplicationController
+class Admin::AnswersController < Admin::BaseController
   before_action :current_answer, only: %i[edit show update destroy]
   before_action :current_question, only: %i[create new]
 

@@ -1,4 +1,4 @@
-class Admin::QuestionsController < ApplicationController
+class Admin::QuestionsController < Admin::BaseController
   before_action :current_test, only: %i[create index new]
   before_action :current_question, only: %i[show edit update destroy]
 

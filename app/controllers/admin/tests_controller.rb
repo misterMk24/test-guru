@@ -1,4 +1,4 @@
-class Admin::TestsController < ApplicationController
+class Admin::TestsController < Admin::BaseController
   before_action :current_test, only: [:show, :edit, :update, :destroy]
   
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
