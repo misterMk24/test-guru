@@ -1,4 +1,4 @@
-class QuestionsController < ApplicationController
+class Admin::QuestionsController < ApplicationController
   before_action :current_test, only: %i[create index new]
   before_action :current_question, only: %i[show edit update destroy]
 
@@ -21,7 +21,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to @question
+      redirect_to [:admin, @question]
     else
       render :edit
     end
@@ -31,7 +31,7 @@ class QuestionsController < ApplicationController
     @question = @test.questions.new(question_params)
 
     if @question.save
-      redirect_to @question
+      redirect_to [:admin, @question]
     else
       redirect_to action: 'new'
     end
