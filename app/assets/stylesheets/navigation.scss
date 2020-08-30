@@ -4,11 +4,26 @@ li.navbar {
   margin: 10px;
 }
 
-ul {
+li.admin_navbar {
+  display: inline-block;
+  font-size: large;
+  margin: 10px;
+}
+
+ul.navbar {
   border: 4px solid;
   padding: 10px;
   border-radius: 5px;
   border-style: ridge;
   border-color: rosybrown;
-  background-color: goldenrod;
+  background-color: burlywood;
+}
+
+ul.admin_navbar {
+  border: 4px solid;
+  padding: 10px;
+  border-radius: 5px;
+  border-style: ridge;
+  border-color: rosybrown;
+  background-color: coral;
 }
