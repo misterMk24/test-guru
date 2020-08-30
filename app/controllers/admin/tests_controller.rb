@@ -1,5 +1,5 @@
 class Admin::TestsController < Admin::BaseController
-  before_action :current_test, only: [:show, :edit, :update, :destroy]
+  before_action :current_test, only: %i[show edit update destroy]
   
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
@@ -29,7 +29,7 @@ class Admin::TestsController < Admin::BaseController
 
   def create
     @test = Test.new(test_params)
-    @test.update_attribute :author_id, current_user.id
+    current_user&.authored_tests.push(@test)
 
     if @test.save
       redirect_to [:admin, @test]
@@ -43,15 +43,10 @@ class Admin::TestsController < Admin::BaseController
     redirect_to admin_tests_path
   end
 
-  def start
-    current_user.tests.push(@test)
-    redirect_to current_user.test_passage(@test)
-  end
-
   private
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :author_id)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 
   def current_test

@@ -8,12 +8,10 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     logger.info "Current user id: #{current_user.id}"
     
-    if current_user.admin? && current_user.id == cookies[:user_id].to_i
-      cookies[:return_to_url] || root_path
-    elsif current_user.admin?
+    if current_user.admin?
       stored_location_for(:user) || admin_tests_path
     else
-      root_path
+      stored_location_for(:user) || root_path
     end
   end
 
@@ -26,11 +24,6 @@ class ApplicationController < ActionController::Base
   end
 
   def requested_url
-    cookies[:return_to_url] = request.fullpath
-    cookies[:user_id] = current_user&.id
-    store_location_for(:user, cookies[:return_to_url])
-    
-    logger.info "Here is path: #{cookies[:return_to_url]}"
-    logger.info "Here is user_id: #{cookies[:user_id]}"
+    store_location_for(:user, request.fullpath)
   end
 end
