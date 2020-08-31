@@ -2,6 +2,8 @@
 
 <%# = flash_message_view(:notice) %>
 
+<p><%= link_to 'Create', new_admin_test_path %></p>
+
 <table>
   <tr>
   	<th>Title</th>
@@ -9,7 +11,7 @@
   	<th>Category</th>
   	<th>Author</th>
   	<th>Number of questions</th>
-  	<th>Actions</th>
+  	<th colspan="3">Actions</th>
   </tr>
     <%= render @tests.order(:created_at) %>
 </table>

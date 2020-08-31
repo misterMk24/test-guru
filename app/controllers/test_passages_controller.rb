@@ -3,7 +3,7 @@ class TestPassagesController < ApplicationController
 
   def show
     unless @test_passage.user.id == current_user.id
-      redirect_to tests_path, notice: "You do not have permission"
+      redirect_to admin_tests_path, notice: "You do not have permission"
     end
   end
 

@@ -1,5 +1,5 @@
 class TestsController < ApplicationController
-  before_action :current_test, only: [:show, :edit, :update, :destroy, :start]
+  before_action :current_test, only: :start
   
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
@@ -8,49 +8,15 @@ class TestsController < ApplicationController
     render plain: "There are no tests for this test" if @tests.empty?
   end
 
-  def show
-    @questions = @test.questions
-  end
-
-  def new
-    @test = Test.new
-  end
-
-  def edit
-  end
-
-  def update
-    if @test.update(test_params)
-      redirect_to @test
-    else
-      render :edit
-    end
-  end
-
-  def create
-    @test = Test.new(test_params)
-
-    if @test.save
-      redirect_to @test
-    else
-      render :new
-    end
-  end
-
-  def destroy
-    @test.destroy
-    redirect_to tests_path
-  end
-
   def start
     current_user.tests.push(@test)
-    redirect_to @user.test_passage(@test)
+    redirect_to current_user.test_passage(@test)
   end
 
   private
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :author_id)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 
   def current_test
