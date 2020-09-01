@@ -1,15 +1,13 @@
-<h1>Tests list</h1>
-
-<%# = flash_message_view(:notice) %>
+<h1><%= t('.header') %></h1>
 
 <table>
   <tr>
-  	<th>Title</th>
-  	<th>Level</th>
-  	<th>Category</th>
-  	<th>Author</th>
-  	<th>Number of questions</th>
-  	<th>Actions</th>
+  	<th><%= t('.title') %></th>
+  	<th><%= t('.level') %></th>
+  	<th><%= t('.category') %></th>
+  	<th><%= t('.author') %></th>
+  	<th><%= t('.questions') %></th>
+  	<th><%= t('main.action') %></th>
   </tr>
     <%= render @tests.order(:created_at) %>
 </table>

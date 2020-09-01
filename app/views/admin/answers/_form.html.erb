@@ -1,7 +1,7 @@
 <%= form_with model: [:admin, @question, @answer], local: true do |form| %>
   <%= render 'shared/errors', resource: @answer %>
 
-  <h2> Create/Edit answer </h2>
+  <h2> <%= t('.CU_answer_header') %> </h2>
 
   <p>
     <%= form.label :body %><br>

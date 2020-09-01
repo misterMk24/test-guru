@@ -13,7 +13,11 @@ module TestGuru
     config.time_zone = 'Warsaw'
 
     I18n.enforce_available_locales = true
-    I18n.config.available_locales = %i[en]
+
+    # setup available locales
+    I18n.config.available_locales = %i[en ru]
+
+    # setup default locale
     I18n.default_locale = :en
     config_autoloader = :classic
     # Settings in config/environments/* take precedence over those specified here.
