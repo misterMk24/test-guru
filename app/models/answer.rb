@@ -10,7 +10,7 @@ class Answer < ApplicationRecord
 
   def validate_question_capacity
     if question.answers.count == MAX_QUESTION_AMOUNT
-      errors.add(:base, 'This question has four answers already')
+      errors.add(:base, I18n.t('main.answer_limitation'))
     end
   end
 

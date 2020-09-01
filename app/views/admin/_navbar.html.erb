@@ -3,5 +3,5 @@
   <li class='admin_navbar'><%= link_to 'Test Guru', admin_tests_path %></li>
   <li class='admin_navbar' style='float:right'><%= link_to t('layouts.navbar.sign_out'), destroy_user_session_path,
                               method: :delete,
-                              data: { confirm: 'Are you sure?' } %></li>
+                              data: { confirm: t('main.confirm') } %></li>
 </ul>

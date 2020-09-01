@@ -7,6 +7,7 @@ en:
     edit: "Edit"
     delete: "Delete"
     confirm: "Are you sure?"
+    answer_limitation: "Question has 4 answers already"
   helpers:
     submit:
       test:
@@ -18,6 +19,8 @@ en:
       answer:
         create: "Create answer"
         update: "Update answer"
+    select:
+      prompt: "Please select"
     label:
       test:
         title: "Title"
@@ -32,12 +35,12 @@ en:
     index:
       header: "List of available tests"
       title: "Title"
-      level: 'Level'
-      category: 'Category'
-      author: 'Author'
-      questions: 'Number of questions'
+      level: "Level"
+      category: "Category"
+      author: "Author"
+      questions: "Number of questions"
     test:
-      start: 'Start'
+      start: "Start"
   shared:
     footer:
       author: 'Author: Aleksandr Seleznev'
