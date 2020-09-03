@@ -1,8 +1,8 @@
 <tr>
   <td><%= test.title %></td>
-  <td><%= test.level %></td>
+  <td class='on_center'><%= test.level %></td>
   <td><%= test.category.title %>
   <td><%= test.author.username %></td>
-  <td><%= questions_amount(test) %></td>
-  <td><%= button_to 'Start', start_test_path(test) %></td>
+  <td class='on_center'><%= questions_amount(test) %></td>
+  <td><%= button_to t('.start'), start_test_path(test) %></td>
 </tr>

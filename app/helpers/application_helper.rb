@@ -4,12 +4,13 @@ module ApplicationHelper
   end
 
   def github_url(author, repo)
-    link_to 'Project Test-Guru', "https://github.com/#{author}/#{repo}"
+    link_to "#{t('.project')} Test-Guru", "https://github.com/#{author}/#{repo}"
   end
 
   def greetings_message_view
+    layout_path = 'layouts.application'
     if user_signed_in?
-      "<p class='nav user'>Welcome, <b>#{current_user.username}</b> Guru</p>".html_safe
+      "<p class='nav user'>#{t("#{layout_path}.welcome")}, <b>#{current_user.username}</b> #{t("#{layout_path}.guru")}</p>".html_safe
     end
   end
 

@@ -3,7 +3,6 @@ module TestPassageHelper
     result = test_passage.calculate_result
     if test_passage.success?
       "<p class= success>Congratulations, you've successfully passed the test. Your score is: #{result.round}%</p>".html_safe
-      # "Congratulations, you've successfully passed the test. Your score is: #{result.round}%"
     else
       "<p class= failed>You've failed. Your score is: #{result.round}%</p>".html_safe
     end

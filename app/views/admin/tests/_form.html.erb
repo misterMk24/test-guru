@@ -1,5 +1,5 @@
 <%= form_with model: [:admin, @test], local: true do |form| %>
-  <%= render 'shared/errors', resource: @test %>   
+  <%= render 'shared/error_messages', resource: @test %>   
   
   <p>
     <%= form.label :title %>

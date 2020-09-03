@@ -1,0 +1,88 @@
+ru:
+  main:
+    back: "Назад"
+    action: "Действия"
+    create: "Создать"
+    show: "Просмотр"
+    edit: "Изменить"
+    delete: "Удалить"
+    confirm: "Вы уверены?"
+    answer_limitation: "Вопрос не может содержать больше 4х ответов"
+  helpers:
+    submit:
+      test:
+        create: "Создать тест"
+        update: "Обновить тест"
+      question:
+        create: "Создать вопрос"
+        update: "Обновить вопрос"
+      answer:
+        create: "Создать ответ"
+        update: "Обновить ответ"
+    select:
+      prompt: "Пожалуйста, выберите"
+    label:
+      test:
+        title: "Наименование"
+        level: "Уровень"
+        category_id: "Категория"
+      question:
+        body: "Тело вопроса"
+      answer:
+        body: "Тело ответа"
+        correct: "Корректный ответ"
+  tests:
+    index:
+      header: "Список доступных тестов"
+      title: "Наименование"
+      level: "Уровень"
+      category: "Категория"
+      author: "Автор"
+      questions: "Количество вопросов"
+    test:
+      start: "Старт"
+  shared:
+    footer:
+      author: "Автор: Александр Селезнёв"
+      project: "Проект"
+      description: "Позволяет создавать и проходить тесты"
+      thinknetica: "Учебный проект в онлайн-школе Thinknetica"
+    questions_list:
+      question: "Вопрос"
+  layouts:
+    navbar:
+      sign_out: "Выйти"
+    application: 
+      welcome: "Добро пожаловать"
+      guru: "Гуру"
+  admin:
+    tests:
+      create:
+        success: "Тест был успешно создан."
+      show:
+        test_id: "Текущий ID"
+        questions: "Вопросы"
+        create: "Создать новый вопрос"
+    questions:
+      index:
+        header: "Список вопросов"
+        test: "Тест"
+      show:
+        question_id: "Текущий ID"
+        answers: "Ответы"
+        new_answer: "Новый ответ"
+      form:
+        create_question_header: "Создать новый '%{title}' вопрос"
+        edit_question_header: "Изменить '%{title}' вопрос"
+    answers:
+      show:
+        question: "Вопрос"
+        answer: "Ответ"
+        correct: "Корректный ответ"
+      new:
+        create_answer_header: "Новый ответ"
+        edit_answer_header: "Редактировать ответ"
+      form:
+        CU_answer_header: "Создать/Изменить ответ"
+    navbar:
+      admin_bar: "Панель администратора"

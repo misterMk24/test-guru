@@ -1,33 +1,88 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  main:
+    back: "Back"
+    action: 'Actions'
+    create: "Create"
+    show: "Show"
+    edit: "Edit"
+    delete: "Delete"
+    confirm: "Are you sure?"
+    answer_limitation: "Question has 4 answers already"
+  helpers:
+    submit:
+      test:
+        create: "Create test"
+        update: "Update test"
+      question:
+        create: "Create question"
+        update: "Update question"
+      answer:
+        create: "Create answer"
+        update: "Update answer"
+    select:
+      prompt: "Please select"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+      question:
+        body: "Body"
+      answer:
+        body: "Body"
+        correct: "Correct"
+  tests:
+    index:
+      header: "List of available tests"
+      title: "Title"
+      level: "Level"
+      category: "Category"
+      author: "Author"
+      questions: "Number of questions"
+    test:
+      start: "Start"
+  shared:
+    footer:
+      author: 'Author: Aleksandr Seleznev'
+      project: 'Project'
+      description: 'Description: allows create and pass some tests'
+      thinknetica: 'Education project at online school Thinknetica'
+    questions_list:
+      question: "Question"
+  layouts:
+    navbar:
+      sign_out: "Sign Out"
+    application: 
+      welcome: "Welcome"
+      guru: "Guru"
+  admin:
+    tests:
+      create:
+        success: "Test was successfully created."
+      show:
+        test_id: "Test with id"
+        questions: "Questions"
+        create: "Create new question"
+    questions:
+      index:
+        header: "Questions list"
+        test: "Test"
+      show:
+        question_id: "Question with ID"
+        answers: "Answers"
+        new_answer: "New answer"
+      form:
+        create_question_header: "Create new '%{title}' question"
+        edit_question_header: "Edit '%{title}' question"
+    answers:
+      show:
+        question: "Question"
+        answer: "Answer"
+        correct: "Correct"
+      new:
+        create_answer_header: "New answer"
+        edit_answer_header: "Edit answer"
+      form:
+        CU_answer_header: "Create/Edit answer"
+    navbar:
+      admin_bar: "Admin Bar"

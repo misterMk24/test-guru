@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <p>Test with id:  <%= @test.id %></p>
-    <p>Titile: <b><%= @test.title %></b></p>
-    <p>Level: <%= @test.level %></p>
-    <p>Category: <%= @test.category.title%></p>
-    <p>Author: <%= @test.author.username %></p>
-    <p>Number of questions: <%= questions_amount(@test)%></p>
-    <p><b>Questions: </b></p>
+    <p><%= t('.test_id') %>:  <%= @test.id %></p>
+    <p><%= t('tests.index.title') %>: <b><%= @test.title %></b></p>
+    <p><%= t('tests.index.level') %>: <%= @test.level %></p>
+    <p><%= t('tests.index.category') %>: <%= @test.category.title%></p>
+    <p><%= t('tests.index.author') %>: <%= @test.author.username %></p>
+    <p><%= t('tests.index.questions') %>: <%= questions_amount(@test)%></p>
+    <p><b><%= t('.questions')%>: </b></p>
 
     <%= render 'shared/questions_list', resource: @questions unless @questions.empty? %> 
 
 
-    <%= link_to 'Create new question', new_admin_test_question_path(@test) %><br>
-    <%= link_to 'Back', action: 'index' %>
+    <%= link_to t('.create'), new_admin_test_question_path(@test) %><br>
+    <%= link_to t('main.back'), action: 'index' %>
   </body>
 </html>
