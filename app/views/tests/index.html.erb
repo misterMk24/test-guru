@@ -1,15 +1,18 @@
-<h1><%= t('.header') %></h1>
+<h1><%= t('tests.index.header') %></h1>
 
-<table>
-  <tr>
-  	<th><%= t('.title') %></th>
-  	<th><%= t('.level') %></th>
-  	<th><%= t('.category') %></th>
-  	<th><%= t('.author') %></th>
-  	<th><%= t('.questions') %></th>
-  	<th><%= t('main.action') %></th>
-  </tr>
-    <%= render @tests.order(:created_at) %>
-</table>
+<div class="float-left">
+	<table class="table">
+		<thead class="thead-dark text-center">
+	  	<tr>
+	  		<th><%= t('.title') %></th>
+	  		<th><%= t('.level') %></th>
+	  		<th><%= t('.category') %></th>
+	  		<th><%= t('.author') %></th>
+	  		<th><%= t('.questions') %></th>
+	  		<th><%= t('main.action') %></th>
+	  	</tr>
+		</thead>
+</div>
 
-<%= render 'shared/footer' %>
+	<%= render @tests.order(:created_at) %>
+	</table>

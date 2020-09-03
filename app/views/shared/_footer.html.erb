@@ -1,10 +1,11 @@
 <footer>
-  <p>
-  	<%= t('.author') %> <br>
-  	<%= github_url("misterMK24", "test-guru") %><br>
-    <%= t('.description') %><br>
-
-  	<%= link_to t('.thinknetica'), 'https://thinknetica.com' %>,
-    <%= current_year %>.
-  </p>
+    <ul class="nav flex-column">
+      <div class="fixed-bottom">
+    	  <li class="navbar-item"><%= t('.author') %></li>
+    	  <li class="navbar-item"><%= github_url("misterMK24", "test-guru") %></li>
+        <li class="navbar-item"><%= t('.description') %></li>
+        <li class="navbar-item"><%= link_to t('.thinknetica'), 'https://thinknetica.com', class: "text-info" %><li>
+        <li class="navbar-item"><%= current_year %>.</li>
+      </div>
+    </ul>
 </footer>

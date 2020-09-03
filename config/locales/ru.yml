@@ -52,6 +52,7 @@ ru:
   layouts:
     navbar:
       sign_out: "Выйти"
+      brand: "Test Guru Панель"
     application: 
       welcome: "Добро пожаловать"
       guru: "Гуру"
@@ -84,5 +85,3 @@ ru:
         edit_answer_header: "Редактировать ответ"
       form:
         CU_answer_header: "Создать/Изменить ответ"
-    navbar:
-      admin_bar: "Панель администратора"

@@ -1,12 +1,12 @@
 <tr>
-  <td><%= test.title %></td>
-  <td class='on_center'><%= test.level %></td>
-  <td><%= test.category.title %>
-  <td><%= test.author.username %></td>
-  <td class='on_center'><%= questions_amount(test) %></td>
-  <td><%= link_to t('main.show'), admin_test_path(test) %></td>
-  <td><%= link_to t('main.edit'), edit_admin_test_path(test) %></td>
-  <td><b><%= link_to t('main.delete'), admin_test_path(test),
+  <td class="table-warning"><%= test.title %></td>
+  <td class="table-warning text-center"><%= test.level %></td>
+  <td class="table-warning"><%= test.category.title %>
+  <td class="table-warning"><%= test.author.username %></td>
+  <td class="table-warning text-center"><%= questions_amount(test) %></td>
+  <td class="table-warning"><%= link_to t('main.show'), admin_test_path(test) %></td>
+  <td class="table-warning"><%= link_to t('main.edit'), edit_admin_test_path(test) %></td>
+  <td class="table-warning"><b><%= link_to t('main.delete'), admin_test_path(test),
 				method: :delete,
 				data: { confirm: t('main.confirm') } %></b></td>
 </tr>

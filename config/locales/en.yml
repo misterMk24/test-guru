@@ -52,6 +52,7 @@ en:
   layouts:
     navbar:
       sign_out: "Sign Out"
+      brand: "Test Guru Panel"
     application: 
       welcome: "Welcome"
       guru: "Guru"
@@ -84,5 +85,3 @@ en:
         edit_answer_header: "Edit answer"
       form:
         CU_answer_header: "Create/Edit answer"
-    navbar:
-      admin_bar: "Admin Bar"
