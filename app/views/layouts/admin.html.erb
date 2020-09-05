@@ -14,15 +14,16 @@
   </head>
 
   <body>
+  <div class="container-fluid">
     <%= greetings_message_view %>
 
     <%= render 'layouts/navbar' if user_signed_in? %>
     
-    <div class="container-fluid">
-      <%= render 'shared/flash' %>
-      <%= yield %>
-    </div>
-    
+    <%= render 'shared/flash' %>
+
+    <%= yield %>
+
     <%= render 'shared/footer' %>
+  </div>
   </body>
 </html>
