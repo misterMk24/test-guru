@@ -10,7 +10,8 @@ module ApplicationHelper
   def greetings_message_view
     layout_path = 'layouts.application'
     if user_signed_in?
-      "<p class='nav user'>#{t("#{layout_path}.welcome")}, <b>#{current_user.username}</b> #{t("#{layout_path}.guru")}</p>".html_safe
+      "<h3><div class='text-right'>#{t("#{layout_path}.welcome")}, 
+            <b>#{current_user.username}</b> #{t("#{layout_path}.guru")}</div></h3>".html_safe
     end
   end
 

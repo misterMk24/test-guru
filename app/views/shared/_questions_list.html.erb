@@ -1,7 +1,7 @@
-<table>
-  <tr>
+<table class="table table-stripped table-sm">
+  <thead class="thead-dark text-center">
   	<th><%= t('.question') %></th>
   	<th colspan="3"><%= t('main.action') %></th>
-  </tr>
+  </thead>
       <%= render resource.order(:created_at) %>
 </table>

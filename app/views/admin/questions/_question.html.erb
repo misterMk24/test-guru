@@ -1,8 +1,8 @@
 <tr>
   <td><%= question.body %></td>
-  <td><%= link_to t('main.show'), admin_question_path(question) %></td>
-  <td><%= link_to t('main.edit'), edit_admin_question_path(question) %></td>
-  <td><b><%= link_to t('main.delete'), admin_question_path(question),
+  <td><%= link_to t('main.show'), admin_question_path(question), class: "btn-sm btn-info" %></td>
+  <td><%= link_to t('main.edit'), edit_admin_question_path(question), class: "btn-sm btn-warning" %></td>
+  <td><b><%= link_to t('main.delete'), admin_question_path(question), class: "btn-sm btn-danger",
 				method: :delete,
 				data: { confirm: t('main.confirm') } %></b></td>
 </tr>

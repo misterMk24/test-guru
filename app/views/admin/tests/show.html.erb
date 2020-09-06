@@ -1,18 +1,42 @@
-<!DOCTYPE html>
-<html>
-  <body>
-    <p><%= t('.test_id') %>:  <%= @test.id %></p>
-    <p><%= t('tests.index.title') %>: <b><%= @test.title %></b></p>
-    <p><%= t('tests.index.level') %>: <%= @test.level %></p>
-    <p><%= t('tests.index.category') %>: <%= @test.category.title%></p>
-    <p><%= t('tests.index.author') %>: <%= @test.author.username %></p>
-    <p><%= t('tests.index.questions') %>: <%= questions_amount(@test)%></p>
-    <p><b><%= t('.questions')%>: </b></p>
+<div class="col m-4">
+  <div class="float-left">
+      <table class="table table-bordered table-sm">
+        <thead class="thead-dark text-center">
+          <tr>
+              <th><%= t('.test_id') %></th>
+              <th><%= t('tests.index.title') %></th>
+              <th><%= t('tests.index.level') %></th>
+              <th><%= t('tests.index.category') %></th>
+	    				<th><%= t('tests.index.author') %></th>
+	    				<th><%= t('tests.index.questions') %></th>
+          </tr>
+        </thead>
+          <tr>
+            <td class="text-center"><%= @test.id %></td>
+            <td><%= @test.title %></td>
+            <td class="text-center"><%= @test.level %></td>
+            <td class="text-center"><%= @test.category.title%></td>
+            <td class="text-center"><%= @test.author.username %></td>
+            <td class="text-center"><%= questions_amount(@test)%></td>
+          </tr>
+      </table>
 
-    <%= render 'shared/questions_list', resource: @questions unless @questions.empty? %> 
+    <h3><%= t('.questions')%></h3>
+    
+    <p><%= link_to t('.create'), new_admin_test_question_path(@test), class: "btn btn-primary"%></p>
+
+    <%= render 'shared/questions_list', resource: @questions unless @questions.empty? %>
+
+    <p><%= link_to t('main.back'), admin_tests_path, class: "btn btn-secondary" %></p>
+  </div>
+</div>
+    
 
 
-    <%= link_to t('.create'), new_admin_test_question_path(@test) %><br>
-    <%= link_to t('main.back'), action: 'index' %>
-  </body>
-</html>
+
+    
+
+
+
+
+
