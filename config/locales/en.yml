@@ -8,6 +8,8 @@ en:
     delete: "Delete"
     confirm: "Are you sure?"
     answer_limitation: "Question has 4 answers already"
+    gist_service:
+      description: "A question about %{test_title} from TestGuru"
   helpers:
     submit:
       test:
@@ -41,6 +43,10 @@ en:
       questions: "Number of questions"
     test:
       start: "Start"
+  gists:
+    create:
+      success:  "Gist was successfully created. Link: %{gist_url}"
+      failure:  "Gist was not created"
   shared:
     footer:
       author: 'Author: Aleksandr Seleznev'
@@ -85,3 +91,9 @@ en:
         edit_answer_header: "Edit answer"
       form:
         CU_answer_header: "Create/Edit answer"
+    gists:
+      index:
+        header: "List of available Gists"
+        question: "Question"
+        gist_hash: "Gist Hash"
+        

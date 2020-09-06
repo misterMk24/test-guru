@@ -8,6 +8,8 @@ ru:
     delete: "Удалить"
     confirm: "Вы уверены?"
     answer_limitation: "Вопрос не может содержать больше 4х ответов"
+    gist_service:
+      description: "Вопрос о %{test_title} от TestGuru"
   helpers:
     submit:
       test:
@@ -41,6 +43,10 @@ ru:
       questions: "Количество вопросов"
     test:
       start: "Старт"
+  gists:
+    create:
+      success:  "Gist был успешно создан. Ссылка: %{gist_url}"
+      failure:  "Gist не был создан"
   shared:
     footer:
       author: "Автор: Александр Селезнёв"
@@ -85,3 +91,8 @@ ru:
         edit_answer_header: "Редактировать ответ"
       form:
         CU_answer_header: "Создать/Изменить ответ"
+    gists:
+      index:
+        header: "Список доступных Gist записей"
+        question: "Вопрос"
+        gist_hash: "Gist Хэш"

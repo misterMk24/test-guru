@@ -28,6 +28,14 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise', '~> 4.0'
 gem 'devise-i18n'
 
+# GitHub Client
+
+gem 'octokit', '~> 4.0'
+
+# dotenv
+
+gem 'dotenv-rails', groups: [:development, :test]
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
