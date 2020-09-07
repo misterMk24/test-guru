@@ -1,12 +1,19 @@
 class GistQuestionService
+  ACCESS_TOKEN = ENV['GITHUB_TOKEN']
+  SUCCESS_STATUS = 201
+
   def initialize(question, client: nil)
     @question = question
     @test = @question.test
-    @client = client || GitHubClient.new
+    @client = client || Octokit::Client.new(access_token: ACCESS_TOKEN)
   end
 
   def call
     @client.create_gist(gist_params)
+  end
+
+  def success?
+    @client.last_response.status == SUCCESS_STATUS
   end
 
   private
