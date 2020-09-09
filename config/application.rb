@@ -20,6 +20,10 @@ module TestGuru
     # setup default locale
     I18n.default_locale = :en
     config_autoloader = :classic
+
+    # included directories aren't included (only in clietns dir)
+    config.autoload_paths << "#{Rails.root}/lib/clients"
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

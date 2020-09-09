@@ -1,0 +1,19 @@
+<div class="col ml-4">
+  <h1><%= t('.header') %></h1>
+  <div class= "float-left">
+      <table class="table table-stripped table-sm">
+        <thead class="thead-dark text-center">
+          <tr>
+              <th><%= t('.question') %></th>
+              <th><%= t('.gist_hash') %></th>
+              <th><%= t('tests.index.author') %></th>
+          </tr>
+        </thead>
+
+	      <%= render @gists.order(:created_at) %>
+
+      </table>
+  </div>
+</div>
+
+
