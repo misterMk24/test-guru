@@ -6,7 +6,6 @@ document.addEventListener('turbolinks:load', function() {
 
 function sortRowsByTitle() {
   var table = document.querySelector('table')
-  console.log(table)
   var rows = table.querySelectorAll('tr')
   var sortedRows = []
   
