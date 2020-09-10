@@ -1,8 +1,8 @@
 <tr>
-  <td class="table-warning"><%= test.title %></td>
-  <td class="table-warning text-center"><%= test.level %></td>
-  <td class="table-warning"><%= test.category.title %>
-  <td class="table-warning"><%= test.author.username %></td>
-  <td class="table-warning text-center"><%= questions_amount(test) %></td>
-  <td class="table-warning"><%= button_to t('.start'), start_test_path(test) %></td>
+  <td class="table"><%= test.title %></td>
+  <td class="table text-center"><%= test.level %></td>
+  <td class="table"><%= test.category.title %>
+  <td class="table"><%= test.author.username %></td>
+  <td class="table text-center"><%= questions_amount(test) %></td>
+  <td class="table"><%= button_to t('.start'), start_test_path(test) %></td>
 </tr>
