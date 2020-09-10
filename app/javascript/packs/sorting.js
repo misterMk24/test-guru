@@ -6,7 +6,7 @@ document.addEventListener('turbolinks:load', function() {
 
 function sortRowsByTitle() {
   var table = document.querySelector('table')
-  
+  console.log(table)
   var rows = table.querySelectorAll('tr')
   var sortedRows = []
   
@@ -26,10 +26,6 @@ function sortRowsByTitle() {
   var sortedTable = document.createElement('table')
   sortedTable.className = "table table-stripped table-sm"
 
-  // sortedTable.classList.add('table', 'table-stripped', 'table-sm')
-  
-  // var table_head = rows[0]
-  // table_head.className = 'thead-dark text-center'
   sortedTable.appendChild(rows[0]).className = 'thead-dark text-center'
   
   for (var i = 0; i < sortedRows.length; i++) {
