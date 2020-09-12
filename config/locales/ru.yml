@@ -70,6 +70,8 @@ ru:
         test_id: "Текущий ID"
         questions: "Вопросы"
         create: "Создать новый вопрос"
+      form_inline:
+        submit: "Ok"
     questions:
       index:
         header: "Список вопросов"

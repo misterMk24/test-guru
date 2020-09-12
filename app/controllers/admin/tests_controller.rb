@@ -1,10 +1,10 @@
 class Admin::TestsController < Admin::BaseController
-  before_action :current_test, only: %i[show edit update destroy]
+  before_action :all_tests, only: %i[index update_inline]
+  before_action :current_test, only: %i[show edit update destroy update_inline]
   
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
-    @tests = Test.all
     render plain: "There are no tests for this test" if @tests.empty?
   end
 
@@ -42,7 +42,19 @@ class Admin::TestsController < Admin::BaseController
     redirect_to admin_tests_path
   end
 
+  def update_inline
+    if @test.update(test_params)
+      redirect_to admin_tests_path
+    else
+      render :index
+    end
+  end
+
   private
+
+  def all_tests
+    @tests = Test.all
+  end
 
   def test_params
     params.require(:test).permit(:title, :level, :category_id)

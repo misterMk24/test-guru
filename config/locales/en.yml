@@ -70,6 +70,8 @@ en:
         test_id: "Test with id"
         questions: "Questions"
         create: "Create new question"
+      form_inline:
+        submit: "Ok"
     questions:
       index:
         header: "Questions list"

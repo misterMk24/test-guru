@@ -1,5 +1,8 @@
 <div class="col ml-4">
   <h1><%= t('tests.index.header') %></h1>
+  
+  <%= render 'shared/error_messages', resource: @test %>
+  
   <div class= "float-left">
    <p><%= link_to t('main.create'), new_admin_test_path, class: "btn btn-primary" %></p>
       <table class="table table-stripped table-sm">

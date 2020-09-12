@@ -1,7 +1,7 @@
-<% if resource.errors.any? %>
-  <div id="error_explanation">
+<% if resource.present? && resource.errors.any? %>
+  <%= content_tag :div, class: 'resource-errors', data: { resource_id: resource.id } do %>
     <h2>
-      <%= I18n.t("errors.messages.not_saved",
+      <%= t("errors.messages.not_saved",
                  count: resource.errors.count,
                  resource: resource.class.model_name.human.downcase)
        %>
@@ -11,5 +11,5 @@
         <li><%= message %></li>
       <% end %>
     </ul>
-  </div>
+  <% end %>
 <% end %>
