@@ -11,18 +11,18 @@ function informUsers() {
   let password_confirm_element = document.getElementById('user_password_confirmation')
   let value = password_confirm_element.value
 
-  switch (value) {
-    case password_element_value:
-      document.querySelector('.octicon-check-circle').classList.remove('d-none')
-      document.querySelector('.octicon-alert').classList.add('d-none')
-      break
-    case "":
-      document.querySelector('.octicon-check-circle').classList.add('d-none')
-      document.querySelector('.octicon-alert').classList.add('d-none')
-      break
-    default:
-      document.querySelector('.octicon-check-circle').classList.add('d-none')
-      document.querySelector('.octicon-alert').classList.remove('d-none')
+  if (value === "") {
+    document.querySelector('.octicon-check-circle').classList.add('d-none')
+    document.querySelector('.octicon-alert').classList.add('d-none')
+    return 0
   }
-}
+
+  if (value === password_element_value) {
+    document.querySelector('.octicon-check-circle').classList.remove('d-none')
+    document.querySelector('.octicon-alert').classList.add('d-none')
+  } else {
+    document.querySelector('.octicon-check-circle').classList.add('d-none')
+    document.querySelector('.octicon-alert').classList.remove('d-none')
+  }
+} 
 
