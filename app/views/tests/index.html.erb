@@ -1,20 +1,24 @@
-<h1><%= t('tests.index.header') %></h1>
+<div class="col ml-4">
+  <h1><%= t('tests.index.header') %></h1>
+  <div class= "float-left">
+      <table class="table table-stripped table-sm">
+        <thead class="thead-dark text-center">
+          <tr>
+              <th class="sort-by-title">
+                <%= t('.title') %>
+                <%= octicon "arrow-up", :height => 16, class: 'title_color d-none' %>
+                <%= octicon "arrow-down", :height => 16, class: 'title_color d-none' %>
+              </th>
+              <th><%= t('.level') %></th>
+              <th><%= t('.category') %></th>
+	    				<th><%= t('.author') %></th>
+	    				<th class="text-nowrap"><%= t('.questions') %></th>
+              <th><%= t('main.action') %></th>
+          </tr>
+        </thead>
 
-<div class="float-left">
-	<div class="position-static">
-		<table class="table">
-			<thead class="thead-dark text-center">
-		  	<tr>
-		  		<th><%= t('.title') %></th>
-		  		<th><%= t('.level') %></th>
-		  		<th><%= t('.category') %></th>
-		  		<th><%= t('.author') %></th>
-		  		<th><%= t('.questions') %></th>
-		  		<th><%= t('main.action') %></th>
-		  	</tr>
-			</thead>
-	</div>
+	      <%= render @tests.order(:created_at) %>
+
+      </table>
+  </div>
 </div>
-
-	<%= render @tests.order(:created_at) %>
-	</table>

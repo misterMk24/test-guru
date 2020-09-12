@@ -24,6 +24,8 @@
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= octicon "check-circle", :height => 24, class: 'equal d-none'%>
+    <%= octicon "alert", :height => 24, class: 'not_equal d-none'%>
   </div>
 
   <div class="actions">

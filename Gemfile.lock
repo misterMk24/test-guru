@@ -119,6 +119,11 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
+    octicons (11.0.0)
+      nokogiri (>= 1.6.3.1)
+    octicons_helper (11.0.0)
+      octicons (= 11.0.0)
+      rails
     octokit (4.18.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
@@ -237,6 +242,7 @@ DEPENDENCIES
   faker
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  octicons_helper
   octokit (~> 4.0)
   pg
   puma (~> 4.1)

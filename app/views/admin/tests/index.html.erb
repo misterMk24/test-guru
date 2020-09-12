@@ -5,7 +5,11 @@
       <table class="table table-stripped table-sm">
         <thead class="thead-dark text-center">
           <tr>
-              <th><%= t('tests.index.title') %></th>
+              <th class="sort-by-title">
+                <%= t('tests.index.title') %>
+                <%= octicon "arrow-up", :height => 16, class: 'title_color d-none' %>
+                <%= octicon "arrow-down", :height => 16, class: 'title_color d-none' %>
+              </th>
               <th><%= t('tests.index.level') %></th>
               <th><%= t('tests.index.category') %></th>
 	    				<th><%= t('tests.index.author') %></th>
@@ -19,5 +23,3 @@
       </table>
   </div>
 </div>
-
-
