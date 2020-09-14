@@ -1,18 +1,43 @@
-<h1>Passing the "<%= @test_passage.test.title %>" Test</h1>
-<p><%= link_to "Create gist", gists_path(test_passage_id: @test_passage), method: :post %></p>
-<b>
-  <%= @test_passage.current_question.body %>
-</b>
+<%= javascript_pack_tag 'progress_passaging' %>
 
-<%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
-  <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body,
-  include_hidden: false do |b| %>
-    <p>
-      <%= b.check_box %>
-      <%= b.label %>
-    </p>
-  <% end %>
-  <p><%= form.submit 'Next' %></p>
-<% end %>
-
-<b><%= current_question_view(@test_passage) %></b>
+<div class="row">  
+  <div class="col ml-4">
+    <h1>Passing the "<%= @test_passage.test.title %>" Test</h1>
+    <p><%= link_to "Create gist", gists_path(test_passage_id: @test_passage),class: "btn btn-primary", method: :post %></p>
+    <h3><%= @test_passage.current_question.body %></h3>
+  </div>
+</div>
+<div class="row">
+    <div class="col ml-4">
+      <div class="float-left">
+        <ul class="list-group list-group-flush">
+          <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
+            <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body,
+            include_hidden: false do |b| %>
+              <li class="list-group-item list-group-item-primary">
+                <%= b.check_box %>
+                <%= b.label %>
+              </li>
+            <% end %>
+            <br><%= form.submit 'Next', id: "submit-action" %>
+          <% end %>
+        </ul>
+        <b><%= current_question_view(@test_passage) %><b>
+      </div>
+    </div>
+</div>
+<div class="row">
+  <div class="col-2 ml-4">
+    Progress bar:
+    <%= content_tag :div, 
+                    class: 'progress', 
+                    data: { current_question_id: @test_passage.current_question_position,
+                          questions_amount: @test_passage.test.questions.count } do %>
+      <%= content_tag :div,
+                      "0%",
+                      style: "width: 0%",
+                      class: "progress-bar",
+                      role: "progressbar" %>
+    <% end %>
+  </div>
+</div>

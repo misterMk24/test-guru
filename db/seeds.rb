@@ -1,7 +1,7 @@
 users = User.create([
-  { username: "Alex", email: "alex@gmail.com" },
-  { username: "Jose" , email: "jose@gmail.com" },
-  { username: "Richard", email: "richard@gmail.com" }
+  { username: "Alex", email: "alex@gmail.com", password: "1q2w3e" },
+  { username: "Jose" , email: "jose@gmail.com", password: "1q2w3e" },
+  { username: "Richard", email: "richard@gmail.com", password: "1q2w3e" }
 ])
 
 admin_user_id = users[0].id
