@@ -34,7 +34,8 @@
                     data: { current_question_id: @test_passage.current_question_position,
                           questions_amount: @test_passage.test.questions.count } do %>
       <%= content_tag :div,
-                      "0",
+                      "0%",
+                      style: "width: 0%",
                       class: "progress-bar",
                       role: "progressbar" %>
     <% end %>
