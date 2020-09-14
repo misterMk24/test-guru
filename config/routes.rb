@@ -17,6 +17,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :feedbacks, only: %i[new create] do
+    collection do
+      get :result
+    end
+  end
+
   resources :gists, only: :create 
 
   namespace :admin do

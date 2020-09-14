@@ -21,6 +21,8 @@ ru:
       answer:
         create: "Создать ответ"
         update: "Обновить ответ"
+      create: "Отправить"
+      back: "Назад"
     select:
       prompt: "Пожалуйста, выберите"
     label:
@@ -33,6 +35,8 @@ ru:
       answer:
         body: "Тело ответа"
         correct: "Корректный ответ"
+      subject: "Тема"
+      body: "Сообщение"
   tests:
     index:
       header: "Список доступных тестов"
@@ -62,6 +66,12 @@ ru:
     application: 
       welcome: "Добро пожаловать"
       guru: "Гуру"
+  feedbacks:
+    navigation: "Обратная связь"
+    result:
+      message_1: "Спасибо, %{user_name}"
+      message_2: "Ваше сообщение было успешно отправлено"
+      link_text: "Все тесты"
   admin:
     tests:
       create:

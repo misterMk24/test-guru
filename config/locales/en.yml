@@ -21,6 +21,8 @@ en:
       answer:
         create: "Create answer"
         update: "Update answer"
+      create: "Send"
+      back: "Back"
     select:
       prompt: "Please select"
     label:
@@ -33,6 +35,8 @@ en:
       answer:
         body: "Body"
         correct: "Correct"
+      subject: "Subject"       
+      body: "Message"
   tests:
     index:
       header: "List of available tests"
@@ -62,6 +66,12 @@ en:
     application: 
       welcome: "Welcome"
       guru: "Guru"
+  feedbacks:
+    navigation: "Feedback"
+    result:
+      message_1: "Thank you, %{user_name}"
+      message_2: "Your message has been successfully sent"
+      link_text: "All tests"
   admin:
     tests:
       create:
