@@ -1,5 +1,6 @@
 class FeedbacksMailer < ApplicationMailer
   def user_feedback(user_email, mail_params)
-    mail to: ENV['SMTP_USERNAME'], subject: mail_params[:subject], body: mail_params[:body]
+    admin_address = "testguru.mail.client@gmail.com"
+    mail to: admin_address, subject: mail_params[:subject], body: mail_params[:body]
   end
 end
