@@ -45,6 +45,8 @@ en:
       category: "Category"
       author: "Author"
       questions: "Number of questions"
+    start:
+      questions_empty: "There are no questions for this test yet"
     test:
       start: "Start"
   gists:
@@ -68,10 +70,8 @@ en:
       guru: "Guru"
   feedbacks:
     navigation: "Feedback"
-    result:
-      message_1: "Thank you, %{user_name}"
-      message_2: "Your message has been successfully sent"
-      link_text: "All tests"
+    create:
+      msg: "Your message has been successfully sent"
   admin:
     tests:
       create:

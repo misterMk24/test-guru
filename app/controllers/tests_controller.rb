@@ -5,12 +5,16 @@ class TestsController < ApplicationController
 
   def index
     @tests = Test.all
-    render plain: "There are no tests for this test" if @tests.empty?
+    render plain: "There are no tests yet" if @tests.empty?
   end
 
   def start
-    current_user.tests.push(@test)
-    redirect_to current_user.test_passage(@test)
+    if @test.questions.empty?
+      redirect_to root_path, notice: t('.questions_empty')
+    else
+      current_user.tests.push(@test)
+      redirect_to current_user.test_passage(@test)
+    end
   end
 
   private

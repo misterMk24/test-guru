@@ -45,6 +45,8 @@ ru:
       category: "Категория"
       author: "Автор"
       questions: "Количество вопросов"
+    start:
+      questions_empty: "Для этого теста вопросов нет"
     test:
       start: "Старт"
   gists:
@@ -68,10 +70,8 @@ ru:
       guru: "Гуру"
   feedbacks:
     navigation: "Обратная связь"
-    result:
-      message_1: "Спасибо, %{user_name}"
-      message_2: "Ваше сообщение было успешно отправлено"
-      link_text: "Все тесты"
+    create:
+      msg: "Ваше сообщение было успешно отправлено"
   admin:
     tests:
       create:
