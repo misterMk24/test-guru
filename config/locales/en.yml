@@ -21,6 +21,8 @@ en:
       answer:
         create: "Create answer"
         update: "Update answer"
+      create: "Send"
+      back: "Back"
     select:
       prompt: "Please select"
     label:
@@ -33,6 +35,8 @@ en:
       answer:
         body: "Body"
         correct: "Correct"
+      subject: "Subject"       
+      body: "Message"
   tests:
     index:
       header: "List of available tests"
@@ -41,6 +45,8 @@ en:
       category: "Category"
       author: "Author"
       questions: "Number of questions"
+    start:
+      questions_empty: "There are no questions for this test yet"
     test:
       start: "Start"
   gists:
@@ -62,6 +68,10 @@ en:
     application: 
       welcome: "Welcome"
       guru: "Guru"
+  feedbacks:
+    navigation: "Feedback"
+    create:
+      msg: "Your message has been successfully sent"
   admin:
     tests:
       create:

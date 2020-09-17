@@ -1,0 +1,15 @@
+<%= form_with url: feedbacks_path,
+              local: true, 
+              method: :post,
+              class: "form-group" do |form| %>   
+  <p>
+    <%= form.label :subject %>
+    <%= form.text_field :subject, class: "form-control" %>
+  </p>  
+  <p>  
+    <%= form.label :body %>
+    <%= form.text_area :body, id: :test_level, class: "form-control" %>
+  </p>
+  
+  <p><%= form.submit t('helpers.submit.create'), class: "btn btn-primary mb-2" %></p>
+<% end %>
