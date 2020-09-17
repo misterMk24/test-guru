@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_06_155316) do
+ActiveRecord::Schema.define(version: 2020_09_17_133346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 2020_09_06_155316) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "image_ref", null: false
+    t.integer "test_passages_amount", default: 0
+    t.integer "level"
+    t.bigint "category_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id", "level"], name: "index_badges_on_category_id_and_level", unique: true
+    t.index ["category_id"], name: "index_badges_on_category_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -72,6 +84,15 @@ ActiveRecord::Schema.define(version: 2020_09_06_155316) do
     t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
   end
 
+  create_table "user_badges", force: :cascade do |t|
+    t.bigint "badge_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["badge_id"], name: "index_user_badges_on_badge_id"
+    t.index ["user_id"], name: "index_user_badges_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
     t.string "role"
@@ -99,6 +120,7 @@ ActiveRecord::Schema.define(version: 2020_09_06_155316) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "badges", "categories"
   add_foreign_key "gists", "questions"
   add_foreign_key "gists", "users"
   add_foreign_key "questions", "tests"
@@ -107,4 +129,6 @@ ActiveRecord::Schema.define(version: 2020_09_06_155316) do
   add_foreign_key "test_passages", "users"
   add_foreign_key "tests", "categories"
   add_foreign_key "tests", "users", column: "author_id"
+  add_foreign_key "user_badges", "badges"
+  add_foreign_key "user_badges", "users"
 end

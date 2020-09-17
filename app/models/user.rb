@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-
   devise :database_authenticatable, 
          :registerable,
          :recoverable, 
@@ -12,6 +11,8 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :authored_tests, class_name: 'Test', foreign_key: 'author_id'
   has_many :gists
+  has_many :user_badges, dependent: :nullify
+  has_many :badges, through: :user_badges
   
   validates :username, presence: true, 
                        uniqueness: true
