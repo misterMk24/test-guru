@@ -1,0 +1,28 @@
+<div class="col ml-4">
+  <h1><%= t('.header') %></h1>
+  
+  <%= render 'shared/error_messages', resource: @badge %>
+  
+  <div class="float-left">
+   <p><%= link_to t('main.create'), new_admin_badge_path, class: "btn btn-primary" %></p>
+      <table class="table table-sm">
+        <thead class="thead text-center">
+          <tr class="table-warning">
+              <th rowspan="2" class="align-middle"><%= t('.name') %></th>
+              <th rowspan="2" class="align-middle"><%= t('.image') %></th>
+              <th colspan="3"><%= t('.condition') %></th>
+              <th rowspan="2" colspan="2" class="align-middle"><%= t('main.action') %></th>
+          </tr>
+          <tr class="table-warning">
+            <th><%= t('.level') %></th>
+            <th><%= t('.category') %></th>
+            <th><%= t('.passage_amount') %></th>
+          </tr>
+        </thead>
+        
+
+	      <%= render @badges.order(:created_at) %>
+
+      </table>
+  </div>
+</div>

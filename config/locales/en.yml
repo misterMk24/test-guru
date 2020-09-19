@@ -73,6 +73,15 @@ en:
     create:
       msg: "Your message has been successfully sent"
   admin:
+    badges:
+      index:
+        header: "All badges"
+        name: "Name"
+        image: "Image"
+        condition: "Condition"
+        level: "Level"
+        category: "Category"
+        passage_amount: "Test passage amount"
     tests:
       create:
         success: "Test was successfully created."

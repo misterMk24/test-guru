@@ -73,6 +73,15 @@ ru:
     create:
       msg: "Ваше сообщение было успешно отправлено"
   admin:
+    badges:
+      index:
+        header: "Бейджи"
+        name: "Наименование"
+        image: "Изображение"
+        condition: "Условие"
+        level: "Уровень"
+        category: "Категория"
+        passage_amount: "Количество пройденных тестов"
     tests:
       create:
         success: "Тест был успешно создан."
