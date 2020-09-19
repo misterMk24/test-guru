@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_09_17_133346) do
     t.string "image_ref", null: false
     t.integer "test_passages_amount", default: 0
     t.integer "level"
+    t.boolean "first_attempt", default: false
     t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_09_17_133346) do
     t.string "title", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["title"], name: "index_categories_on_title", unique: true
   end
 
   create_table "gists", force: :cascade do |t|
@@ -68,6 +70,7 @@ ActiveRecord::Schema.define(version: 2020_09_17_133346) do
     t.integer "correct_questions", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "success", default: false
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
     t.index ["test_id"], name: "index_test_passages_on_test_id"
     t.index ["user_id"], name: "index_test_passages_on_user_id"

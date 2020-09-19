@@ -5,6 +5,7 @@ class AddBadgeTable < ActiveRecord::Migration[6.0]
       t.string :image_ref, null: false
       t.integer :test_passages_amount, default: 0
       t.integer :level
+      t.boolean :first_attempt, default: false
       t.references :category, foreign_key: true
       t.index [:category_id, :level], unique: true
 
@@ -17,5 +18,8 @@ class AddBadgeTable < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+
+    add_column :test_passages, :success, :boolean, default: false
+    add_index :categories, :title, unique: true
   end
 end
