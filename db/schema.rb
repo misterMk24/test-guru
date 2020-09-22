@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_09_17_133346) do
     t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id", "level"], name: "index_badges_on_category_id_and_level", unique: true
+    t.index ["category_id", "level", "test_passages_amount"], name: "index_badges_on_category_id_and_level_and_test_passages_amount", unique: true
     t.index ["category_id"], name: "index_badges_on_category_id"
   end
 
