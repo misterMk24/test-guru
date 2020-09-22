@@ -1,0 +1,28 @@
+<div class="col-5 ml-4">
+  <h1><%= t('admin.badges.show.header') %></h1>
+  <table class="table table-sm">
+    <thead class="thead text-center">
+      <tr class="table-warning">
+          <th rowspan="2" class="align-middle"><%= t('admin.badges.show.name') %></th>
+          <th rowspan="2" class="align-middle"><%= t('admin.badges.show.image') %></th>
+          <th colspan="4"><%= t('admin.badges.show.condition') %></th>
+      </tr>
+      <tr class="table-warning">
+        <th><%= t('admin.badges.show.level') %></th>
+        <th><%= t('admin.badges.show.category') %></th>
+        <th><%= t('admin.badges.show.passage_amount') %></th>
+        <th> <%= t('admin.badges.show.first_attempt') %> </th>
+      </tr>
+    </thead>
+    <tr class="table-primary text-center align-middle">
+      <td class="text-center align-middle"><%= @badge.name %></td>
+      <td class="text-center align-middle"><%= image_tag(@badge.image_ref, size: "80x60") %>
+      <td class="text-center align-middle"><%= level_view(@badge) %></td>
+      <td class="text-center align-middle"><%= category_view(@badge) %></td>
+      <td class="text-center align-middle"><%= @badge.test_passages_amount %></td>
+      <td class="text-center align-middle"><%= first_attempt_view(@badge) %></td>
+    </tr>
+  </table>
+
+  <p><%= link_to t('main.back'), badges_path, class: "btn btn-primary" %></p>
+</div>

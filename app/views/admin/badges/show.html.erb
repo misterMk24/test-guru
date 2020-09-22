@@ -1,42 +1,37 @@
-<div class="col m-4">
-  <div class="float-left">
-      <table class="table table-bordered table-sm">
-        <thead class="thead-dark text-center">
-          <tr>
-              <th><%= t('.test_id') %></th>
-              <th><%= t('tests.index.title') %></th>
-              <th><%= t('tests.index.level') %></th>
-              <th><%= t('tests.index.category') %></th>
-	    				<th><%= t('tests.index.author') %></th>
-	    				<th><%= t('tests.index.questions') %></th>
-          </tr>
-        </thead>
-          <tr>
-            <td class="text-center"><%= @test.id %></td>
-            <td><%= @test.title %></td>
-            <td class="text-center"><%= @test.level %></td>
-            <td class="text-center"><%= @test.category.title%></td>
-            <td class="text-center"><%= @test.author.username %></td>
-            <td class="text-center"><%= questions_amount(@test)%></td>
-          </tr>
-      </table>
+<div class="col-5 ml-4">
+  <h1><%= t('.header') %></h1>
+  <table class="table table-sm">
+    <thead class="thead text-center">
+      <tr class="table-warning">
+          <th rowspan="2" class="align-middle"><%= t('.name') %></th>
+          <th rowspan="2" class="align-middle"><%= t('.image') %></th>
+          <th colspan="4"><%= t('.condition') %></th>
+          <th rowspan="2" colspan="2" class="align-middle"><%= t('main.action') %></th>
+      </tr>
+      <tr class="table-warning">
+        <th><%= t('.level') %></th>
+        <th><%= t('.category') %></th>
+        <th><%= t('.passage_amount') %></th>
+        <th><%= t('.first_attempt') %></th>
+      </tr>
+    </thead>
+    <tr class="table-primary text-center align-middle">
+      <td class="text-center align-middle"><%= @badge.name %></td>
+      <td class="text-center align-middle"><%= image_tag(@badge.image_ref, size: "80x60") %>
+      <td class="text-center align-middle"><%= level_view(@badge) %></td>
+      <td class="text-center align-middle"><%= category_view(@badge) %></td>
+      <td class="text-center align-middle"><%= @badge.test_passages_amount %></td>
+      <td class="text-center align-middle"><%= first_attempt_view(@badge) %></td>
+      <td class="text-center align-middle">
+        <%= link_to  t("main.edit"), edit_admin_badge_path(@badge), class: "btn-sm btn-warning" %>
+      </td>
+      <td class="text-center align-middle"><b>
+        <%= link_to t('main.delete'), admin_badge_path(@badge), class: "btn-sm btn-danger",
+  			method: :delete,
+  			data: { confirm: t('main.confirm') } %></b>
+      </td>
+    </tr>
+  </table>
 
-    <h3><%= t('.questions')%></h3>
-    
-    <p><%= link_to t('.create'), new_admin_test_question_path(@test), class: "btn btn-primary"%></p>
-
-    <%= render 'shared/questions_list', resource: @questions unless @questions.empty? %>
-
-    <p><%= link_to t('main.back'), admin_tests_path, class: "btn btn-secondary" %></p>
-  </div>
+  <p><%= link_to t('main.back'), admin_badges_path, class: "btn btn-primary" %></p>
 </div>
-    
-
-
-
-    
-
-
-
-
-

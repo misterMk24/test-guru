@@ -18,8 +18,8 @@ Rails.application.routes.draw do
   end
 
   resources :feedbacks, only: %i[new create]
-
-  resources :gists, only: :create 
+  resources :gists, only: :create
+  resources :badges, only: %i[index show]
 
   namespace :admin do
     resources :gists, only: :index

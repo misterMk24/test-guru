@@ -53,6 +53,14 @@ en:
     create:
       success:  "Gist was successfully created. Link: %{gist_url}"
       failure:  "Gist was not created"
+  badges:
+    index:
+      my_header: "My badges"
+    show:
+      level_nil: "Any"
+      category_nil: "Any"
+      attempt_true: "Yes"
+      attempt_false: "No"
   shared:
     footer:
       author: 'Author: Aleksandr Seleznev'
@@ -82,6 +90,19 @@ en:
         level: "Level"
         category: "Category"
         passage_amount: "Test passage amount"
+      show:
+        header: "Badge"
+        name: "Name"
+        image: "Image"
+        condition: "Condition"
+        level: "Level"
+        category: "Category"
+        passage_amount: "Test passage amount"
+        first_attempt: "First Attempt"
+        level_nil: "Any"
+        category_nil: "Any"
+        attempt_true: "Yes"
+        attempt_false: "No"
     tests:
       create:
         success: "Test was successfully created."
