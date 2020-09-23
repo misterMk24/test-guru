@@ -12,6 +12,6 @@ module BadgeHelper
   end
 
   def first_attempt_view(badge)
-    @badge.first_attempt ? t('.attempt_true') : t('.attempt_false')
+    badge.first_attempt ? t('.attempt_true') : t('.attempt_false')
   end
 end

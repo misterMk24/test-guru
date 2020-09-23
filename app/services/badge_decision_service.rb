@@ -30,29 +30,35 @@ class BadgeDecisionService
   end
 
   def is_category?(badge)
-    @badge_cat = badge.category
-    @badge_cat == @category || @badge_cat.nil?
+    case badge.category
+    when @category then return true
+    when nil
+      @user_tests ||= @user.tests.where(level: @level).distinct
+      @tests ||= Test.where(level: @level)
+      return true
+    
+    else return false
+    end
   end
 
   def is_level?(badge)
-    @badge_lvl = badge.level
-    @badge_lvl == @level || @badge_lvl.nil?
+    case badge.level
+    when @level then return true
+    when nil
+      @user_tests ||= @user.tests.where(category: @category).distinct
+      @tests ||= Test.where(category: @category)
+      return true
+
+    else return false
+    end
   end
 
   def is_passages_amount?(badge)
     return true if badge.test_passages_amount == 1
 
-    if @badge_lvl.nil?
-      user_tests = @user.tests.where(category: @category).distinct
-      tests = Test.where(category: @category)
-    elsif @badge_cat.nil?
-      user_tests = @user.tests.where(level: @level).distinct
-      tests = Test.where(level: @level)
-    else
-      user_tests = @user.tests.where(level: @level, category: @category).distinct
-      tests = Test.where(category: @category, level: @level)
-    end
-    count = @user.test_passages.select('distinct on (test_id) *').where(test: user_tests, success: true).length    
-    badge.test_passages_amount.zero? ? tests.count == count : badge.test_passages_amount == count
+    @user_tests ||= @user.tests.where(level: @level, category: @category).distinct
+    @tests ||= Test.where(category: @category, level: @level)
+    count = @user.test_passages.select('distinct on (test_id) *').where(test: @user_tests, success: true).length
+    badge.test_passages_amount.zero? ? @tests.count == count : badge.test_passages_amount == count
   end
 end
