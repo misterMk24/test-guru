@@ -24,7 +24,7 @@ class TestPassage < ApplicationRecord
   def calculate_result
     total_questions = self.test.questions.count.to_f
     correct_questions = self.correct_questions.to_f
-    result = correct_questions / total_questions * TO_PERCENTAGE
+    correct_questions / total_questions * TO_PERCENTAGE
   end
 
   def current_question_position
@@ -42,7 +42,7 @@ class TestPassage < ApplicationRecord
   end
 
   def before_validation_change_current_question
-    self.current_question = next_question
+    self.current_question = next_question unless self.completed?
   end
 
   def correct_answer?(answer_ids)

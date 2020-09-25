@@ -53,6 +53,14 @@ ru:
     create:
       success:  "Gist был успешно создан. Ссылка: %{gist_url}"
       failure:  "Gist не был создан"
+  badges:
+    index:
+      my_header: "Мои бейджи"
+    show:
+      level_nil: "Любой"
+      category_nil: "Любая"
+      attempt_true: "Да"
+      attempt_false: "нет"
   shared:
     footer:
       author: "Автор: Александр Селезнёв"
@@ -73,6 +81,24 @@ ru:
     create:
       msg: "Ваше сообщение было успешно отправлено"
   admin:
+    badges:
+      index:
+        header: "Бейджи"
+        name: "Наименование"
+        image: "Изображение"
+      show:
+        header: "Бейдж"
+        name: "Наименование"
+        image: "Изображение"
+        condition: "Условие"
+        level: "Уровень"
+        category: "Категория"
+        passage_amount: "Количество пройденных тестов"
+        first_attempt: "Первая попытка"
+        level_nil: "Любой"
+        category_nil: "Любая"
+        attempt_true: "Да"
+        attempt_false: "нет"
     tests:
       create:
         success: "Тест был успешно создан."

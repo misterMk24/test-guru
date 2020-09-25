@@ -1,0 +1,17 @@
+<div class="col-3 ml-4">
+  <h1><%= t('.header') %></h1>
+  
+  <%= render 'shared/error_messages', resource: @badge %>
+  
+  <p><%= link_to t('main.create'), new_admin_badge_path, class: "btn btn-primary" %></p>
+  <table class="table table-sm">
+    <thead class="thead text-center">
+      <tr class="table-warning">
+          <th class="align-middle"><%= t('.name') %></th>
+          <th class="align-middle"><%= t('.image') %></th>
+          <th colspan="3" class="align-middle"><%= t('main.action') %></th>
+      </tr>
+    </thead>
+	  <%= render @badges.order(:created_at) %>
+  </table>
+</div>

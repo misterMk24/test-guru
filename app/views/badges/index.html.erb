@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-3 ml-4">
+    <h1 class="text-center"><%= t('admin.badges.index.header') %></h1>
+  
+    <table class="table table-sm">
+      <thead class="thead text-center">
+        <tr class="table-warning">
+          <th class="align-middle"><%= t('admin.badges.index.name') %></th>
+          <th class="align-middle"><%= t('admin.badges.index.image') %></th>
+          <th class="align-middle"><%= t('main.action') %></th>
+        </tr>
+      </thead>
+
+	    <%= render @badges.order(:created_at) %>
+    </table>
+  </div>
+
+  <div class="col-3">
+    <h1 class="text-center"><%= t('.my_header') %></h1>
+  
+    <table class="table table-sm">
+      <thead class="thead text-center">
+      <tr class="table-warning">
+          <th class="align-middle"><%= t('admin.badges.index.name') %></th>
+          <th class="align-middle"><%= t('admin.badges.index.image') %></th>
+          <th class="align-middle"><%= t('main.action') %></th>
+      </tr>
+      </thead>
+
+	    <%= render current_user.badges.order(:created_at) %>
+    </table>
+  </div>
+</div>

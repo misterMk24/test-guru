@@ -8,6 +8,11 @@ class TestPassagesController < ApplicationController
   end
 
   def result
+    if @test_passage.success?
+      @test_passage.update(success: true)
+      badge_service = BadgeDecisionService.new(@test_passage)
+      badge_service.decide
+    end
   end
 
   def update

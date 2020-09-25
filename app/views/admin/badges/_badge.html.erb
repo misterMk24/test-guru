@@ -1,0 +1,15 @@
+<tr class="table-primary text-center align-middle">
+  <td class="text-center align-middle"><%= badge.name %></td>
+  <td class="text-center align-middle"><%= image_tag(badge.image_ref, size: "80x60") %>
+  <td class="text-center align-middle">
+    <%= link_to  t("main.show"), admin_badge_path(badge), class: "btn btn-primary" %>
+  </td>
+  <td class="text-center align-middle">
+    <%= link_to  t("main.edit"), edit_admin_badge_path(badge), class: "btn btn-warning" %>
+  </td>
+  <td class="text-center align-middle"><b>
+    <%= link_to t('main.delete'), admin_badge_path(badge), class: "btn btn-danger",
+				method: :delete,
+				data: { confirm: t('main.confirm') } %></b>
+  </td>
+</tr>
