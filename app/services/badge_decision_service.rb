@@ -10,7 +10,7 @@ class BadgeDecisionService
 
   def decide
     @badges.each do |badge|
-      UserBadge.create(user: @user, badge: badge) if converges?(badge)
+      @user.user_badges.create(badge: badge) if converges?(badge)
     end
   end
 
