@@ -11,6 +11,7 @@ require("jquery")
 require("packs/sorting.js")
 require("packs/password_input_checking.js")
 require("packs/form_inline.js")
+// require("packs/timer_feature.js")
 // require("packs/progress_passaging.js")
 
 

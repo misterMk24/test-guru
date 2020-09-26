@@ -45,6 +45,7 @@ en:
       category: "Category"
       author: "Author"
       questions: "Number of questions"
+      timer: "Timer (in minutes)"
     start:
       questions_empty: "There are no questions for this test yet"
     test:
