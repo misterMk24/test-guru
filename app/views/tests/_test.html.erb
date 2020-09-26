@@ -4,5 +4,6 @@
   <td class="table"><%= test.category.title %>
   <td class="table"><%= test.author.username %></td>
   <td class="table text-center"><%= questions_amount(test) %></td>
+  <td class="table text-center"><%= test.timer %></td>
   <td class="table"><%= button_to t('.start'), start_test_path(test) %></td>
 </tr>

@@ -9,6 +9,7 @@
               <th><%= t('tests.index.category') %></th>
 	    				<th><%= t('tests.index.author') %></th>
 	    				<th><%= t('tests.index.questions') %></th>
+              <th><%= t('tests.index.timer') %></th>
           </tr>
         </thead>
           <tr>
@@ -18,6 +19,7 @@
             <td class="text-center"><%= @test.category.title%></td>
             <td class="text-center"><%= @test.author.username %></td>
             <td class="text-center"><%= questions_amount(@test)%></td>
+            <td class="text-center"><%= @test.timer %></td>
           </tr>
       </table>
 

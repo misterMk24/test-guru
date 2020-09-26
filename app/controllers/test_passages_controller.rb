@@ -18,6 +18,10 @@ class TestPassagesController < ApplicationController
   def update
     @test_passage.accept!(params[:answer_ids])
 
+    unless @test_passage.created_at.in(@test_passage.test.timer * 60).future?
+      redirect_to result_test_passage_path(@test_passage), notice: 'Your time has expired!!' and return
+    end
+    
     if @test_passage.completed?
       redirect_to result_test_passage_path(@test_passage)
     else

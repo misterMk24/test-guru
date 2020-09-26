@@ -1,4 +1,5 @@
 <%= javascript_pack_tag 'progress_passaging' %>
+<%= javascript_pack_tag 'timer_feature' %>
 
 <div class="row">  
   <div class="col ml-4">
@@ -38,6 +39,16 @@
                       style: "width: 0%",
                       class: "progress-bar",
                       role: "progressbar" %>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-2 ml-4">
+  Timer: 
+   <%= content_tag :div,
+                   class: 'timer',
+                   data: {  test_passages_id: @test_passage.id,
+                            end_time_id: @test_passage.created_at.in(@test_passage.test.timer * 60).httpdate } do %>
     <% end %>
   </div>
 </div>

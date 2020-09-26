@@ -7,6 +7,7 @@
   <td class="text-center"><%= test.category.title %>
   <td class="text-center"><%= test.author.username %></td>
   <td class="text-center"><%= questions_amount(test) %></td>
+  <td class="text-center"><%= test.timer %></td>
   <td><%= link_to t('main.show'), admin_test_path(test), class: "btn-sm btn-info" %></td>
   <td>
     <%= link_to  t("main.edit"), 
